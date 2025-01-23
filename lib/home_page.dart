@@ -23,6 +23,7 @@ class HomePage extends StatelessWidget {
       "price" : "\$120.00",
     },
   ];
+  ///gridview data
   List<Map<String, dynamic>> mData = [
     {
       "Image": "asset/Images/shooessmall.jpg",
@@ -64,7 +65,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         // backgroundColor: Colors.white,
-        // elevation: 0,
+        ///Menu and notification
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -99,29 +100,6 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            ///Menu and notification
-            /* Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  height: 35,
-                  width: 35,
-                  decoration: BoxDecoration(
-                    color: Color(0xffE3E3E3), // Background color
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                    child: Icon(Icons.menu,size: 25,),
-                ),
-                Container(
-                    height: 35,
-                    width: 35,
-                  decoration: BoxDecoration(
-                    color: Color(0xffE3E3E3),
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                    child: Icon(Icons.notifications_none_rounded,size: 25,)),
-              ],
-            ),*/
 
             ///Search Icon
             Container(
@@ -277,6 +255,7 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
+
             Expanded(
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -293,7 +272,7 @@ class HomePage extends StatelessWidget {
                     ),
                     elevation: 4, // Shadow effect
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding:  EdgeInsets.all(8.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start, // Align content to the left
                         children: [
@@ -305,26 +284,26 @@ class HomePage extends StatelessWidget {
                               width: 30,
                               decoration: BoxDecoration(
                                 color: Colors.orange,
-                                borderRadius: BorderRadius.circular(50),
+                                borderRadius: BorderRadius.only(topRight: Radius.circular(10)),
                               ),
                               child: Icon(Icons.favorite_border, color: Colors.white, size: 20),
                             ),
                           ),
-              
+
                           /// Product Image
                           Expanded(
                             child: Center(
                               child: Image.asset(
                                 gridData[index]["image"], // Example image asset
                                 fit: BoxFit.contain,
-                                height: 100,
-                                width: 100,
+                                height: 200,
+                                width: 200,
                               ),
                             ),
                           ),
-              
+
                           SizedBox(height: 8),
-              
+
                           /// Product Name
                           Text(
                               gridData[index]["name"],
@@ -332,17 +311,17 @@ class HomePage extends StatelessWidget {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis, // Handle long text
                           ),
-              
+
                           SizedBox(height: 4),
-              
+
                           /// Product Price
                           Text(
                             gridData[index]["price"],
                             style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.grey),
                           ),
-              
+
                           SizedBox(height: 8),
-              
+
                           /// Color Options
                           Row(
                             children: [
@@ -352,14 +331,14 @@ class HomePage extends StatelessWidget {
                                 backgroundColor: Colors.black,
                               ),
                               SizedBox(width: 4),
-              
+
                               // Color Option 2
                               CircleAvatar(
                                 radius: 6,
                                 backgroundColor: Colors.blue,
                               ),
                               SizedBox(width: 4),
-              
+
                               // Additional Colors Indicator
                               Text("+2", style: TextStyle(fontSize: 12, color: Colors.grey)),
                             ],
