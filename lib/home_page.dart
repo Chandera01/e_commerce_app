@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/product_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -266,94 +267,105 @@ class HomePage extends StatelessWidget {
                 ),
                 itemCount: gridData.length, // Number of items in the grid
                 itemBuilder: (context, index) {
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16), // Rounded corners for the card
-                    ),
-                    elevation: 4, // Shadow effect
-                    child: Padding(
-                      padding:  EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start, // Align content to the left
-                        children: [
-                          /// Top Row: Heart Icon
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Container(
-                              height: 30,
-                              width: 30,
-                              decoration: BoxDecoration(
-                                color: Colors.orange,
-                                borderRadius: BorderRadius.only(topRight: Radius.circular(10)),
-                              ),
-                              child: Icon(Icons.favorite_border, color: Colors.white, size: 20),
-                            ),
-                          ),
-
-                          /// Product Image
-                          Expanded(
-                            child: Center(
-                              child: Image.asset(
-                                gridData[index]["image"], // Example image asset
-                                fit: BoxFit.contain,
-                                height: 200,
-                                width: 200,
+                  return InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductPage()));
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16), // Rounded corners for the card
+                      ),
+                      elevation: 4, // Shadow effect
+                      child: Padding(
+                        padding:  EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start, // Align content to the left
+                          children: [
+                            /// Top Row: Heart Icon
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: Container(
+                                height: 30,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                  color: Colors.orange,
+                                  borderRadius: BorderRadius.only(topRight: Radius.circular(10)),
+                                ),
+                                child: Icon(Icons.favorite_border, color: Colors.white, size: 20),
                               ),
                             ),
-                          ),
 
-                          SizedBox(height: 8),
-
-                          /// Product Name
-                          Text(
-                              gridData[index]["name"],
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis, // Handle long text
-                          ),
-
-                          SizedBox(height: 4),
-
-                          /// Product Price
-                          Text(
-                            gridData[index]["price"],
-                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.grey),
-                          ),
-
-                          SizedBox(height: 8),
-
-                          /// Color Options
-                          Row(
-                            children: [
-                              // Color Option 1
-                              CircleAvatar(
-                                radius: 6,
-                                backgroundColor: Colors.black,
+                            /// Product Image
+                            Expanded(
+                              child: Center(
+                                child: Image.asset(
+                                  gridData[index]["image"], // Example image asset
+                                  fit: BoxFit.contain,
+                                  height: 200,
+                                  width: 200,
+                                ),
                               ),
-                              SizedBox(width: 4),
+                            ),
 
-                              // Color Option 2
-                              CircleAvatar(
-                                radius: 6,
-                                backgroundColor: Colors.blue,
-                              ),
-                              SizedBox(width: 4),
+                            SizedBox(height: 8),
 
-                              // Additional Colors Indicator
-                              Text("+2", style: TextStyle(fontSize: 12, color: Colors.grey)),
-                            ],
-                          ),
-                        ],
+                            /// Product Name
+                            Text(
+                                gridData[index]["name"],
+                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis, // Handle long text
+                            ),
+
+                            SizedBox(height: 4),
+
+                            /// Product Price
+                            Text(
+                              gridData[index]["price"],
+                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.grey),
+                            ),
+
+                            SizedBox(height: 8),
+
+                            /// Color Options
+                            Row(
+                              children: [
+                                // Color Option 1
+                                CircleAvatar(
+                                  radius: 6,
+                                  backgroundColor: Colors.black,
+                                ),
+                                SizedBox(width: 4),
+
+                                // Color Option 2
+                                CircleAvatar(
+                                  radius: 6,
+                                  backgroundColor: Colors.blue,
+                                ),
+                                SizedBox(width: 4),
+
+                                // Additional Colors Indicator
+                                Text("+2", style: TextStyle(fontSize: 12, color: Colors.grey)),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   );
                 },
               ),
             ),
-
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductPage()));
+        },
+        child: Icon(Icons.production_quantity_limits),
+      ),
+
     );
   }
 }

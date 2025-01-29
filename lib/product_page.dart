@@ -1,4 +1,5 @@
-  import 'package:flutter/material.dart';
+  import 'package:e_commerce_app/cart_page.dart';
+import 'package:flutter/material.dart';
 
   class ProductPage extends StatelessWidget {
     @override
@@ -10,7 +11,7 @@
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // Back Button
-              Container(
+              /*Container(
                 height: 35,
                 width: 35,
                 decoration: BoxDecoration(
@@ -18,7 +19,7 @@
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Icon(Icons.arrow_back_outlined),
-              ),
+              ),*/
               Spacer(),
 
               // Share Button
@@ -149,9 +150,9 @@
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(2),
+                            padding: const EdgeInsets.all(3),
                             child: CircleAvatar(
-                              radius: 19,
+                              radius: 18,
                               backgroundColor: Colors.black,
                             ),
                           ),
@@ -202,13 +203,98 @@
                     SizedBox(
                       height: 5,
                     ),
-                    Text(
-                        "When buying earbuds, it’s essential to consider several factors to ensure they meet your needs. Sound quality is one of the most important aspects, so look for earbuds that deliver clear audio with balanced bass, mids, and highs. Comfort and fit are equally crucial, especially if you plan to wear them for long periods. Many earbuds come with interchangeable ear tips to provide a secure fit. Noise cancellation is another significant feature—active noise cancellation (ANC) is ideal for blocking out external noise, while passive noise isolation relies on the design to reduce ambient sound. Battery life is also a key factor; most wireless earbuds offer 4-10 hours of playback, with additional charges from the case.",
-                    style: TextStyle(
-                      color: Colors.grey
+
+
+                Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Text(
+                              "When buying earbuds, it’s essential to consider several factors to ensure they meet your needs. Sound quality is one of the most important aspects, so look for earbuds that deliver clear audio with balanced bass, mids, and highs. Comfort and fit are equally crucial, especially if you plan to wear them for long periods. Many earbuds come with interchangeable ear tips to provide a secure fit. Noise cancellation is another significant feature—active noise cancellation (ANC) is ideal for blocking out external noise, while passive noise isolation relies on the design to reduce ambient sound. Battery life is also a key factor; most wireless earbuds offer 4-10 hours of playback, with additional charges from the case.",
+                              style: TextStyle(
+                                  color: Colors.grey
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                    )
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Row(
+                          children: [
+                            Container(
+                              height: 75,
+                              width: MediaQuery.of(context).size.width * 0.8,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(16),
+                                child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Container(
+                                       height: 35,
+
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(50),
+                                        border: Border.all(
+                                          color: Colors.white,
+                                          width: 1
+                                        ),
+                                      ),
+                                      child: Row(
+                                         crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          SizedBox(
+                                            width: 20,
+                                          ),
+                                          Text("-",style: TextStyle(color: Colors.white,fontSize: 25),),
+                                          SizedBox(
+                                            width: 20,
+                                          ),
+                                          Text("1",style: TextStyle(color: Colors.white)),
+                                          SizedBox(
+                                            width: 20,
+                                          ),
+                                          Text("+",style: TextStyle(color: Colors.white)),
+                                          SizedBox(
+                                            width: 20,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 60,
+                                      child: ElevatedButton(
+                                        onPressed: (){
+                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>CartPage()));
+                                        },
+                                        child: Text("Add to Cart"),
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.deepOrange,
+                                          foregroundColor: Colors.white,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        ),
+                      ),
                   ],
+                ),
+            ],
                 ),
               ),
             ],
